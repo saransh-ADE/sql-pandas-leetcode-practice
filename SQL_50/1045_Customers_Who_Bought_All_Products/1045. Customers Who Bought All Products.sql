@@ -1,6 +1,6 @@
-select customer_id from (
-select count(distinct product_key) as pc,customer_id
-from customer
-group by customer_id
-)
-where pc = (select count(*) from product)
+SELECT customer_id
+FROM Customer
+GROUP BY 1
+HAVING COUNT(DISTINCT product_key) = (
+    SELECT COUNT(*) FROM Product
+  );
