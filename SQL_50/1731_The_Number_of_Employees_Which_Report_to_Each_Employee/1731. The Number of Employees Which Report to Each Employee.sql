@@ -10,5 +10,6 @@ INNER JOIN (
 	FROM employees
 	GROUP BY reports_to
 	HAVING count(*) >= 1
-	) a ON e.employee_id = a.reports_to
+	) a 
+	ON e.employee_id = a.reports_to
 ORDER BY e.employee_id
